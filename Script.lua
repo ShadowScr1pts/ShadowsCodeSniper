@@ -3808,7 +3808,7 @@ do
 	title.Size = UDim2.new(1, -20, 0, 28);
 	title.Position = UDim2.fromOffset(10, 72);
 	title.BackgroundTransparency = 1;
-	title.Text = "VOID // C.S";
+	title.Text = "SHADOW // C.S";
 	title.TextColor3 = COLORS.Text;
 	title.TextSize = 18;
 	title.Font = Enum.Font.GothamBold;
