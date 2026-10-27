@@ -640,7 +640,7 @@ local function buildPayload(brainrots, code, speedLines, scanning, imageUrl)
 		text = quoted[1] .. " has been sniped!";
 	end
 	local real = isRealGame();
-	local embed = {title=((real and "🎯 Sniped!  •  ✅ REAL") or "🎯 Sniped!  •  ❌ FAKE"),description=text,color=((real and 5763719) or 15548997),author={name=player.Name,icon_url=_avatarUrl},fields={{name="Game Check",value=((real and ("✅ **REAL** — in the correct game (`" .. tostring(game.PlaceId) .. "`)")) or ("❌ **FAKE** — wrong game (`" .. tostring(game.PlaceId) .. "`)")),inline=false},{name="Code Submitted",value=("`" .. tostring((code and (code ~= "") and code) or "unknown") .. "`"),inline=true},{name="Roblox Username",value=("`" .. player.Name .. "`"),inline=true},{name="Brainrot Spawned",value=table.concat(names, ", "),inline=false},{name="Mutation",value=table.concat(mutLines, "\n"),inline=false},{name="Snipe Speed",value=table.concat(speedLines, "\n"),inline=false}},footer={text=("Void C.S  •  " .. player.DisplayName)}};
+	local embed = {title=((real and "🎯 Sniped!  •  ✅ REAL") or "🎯 Sniped!  •  ❌ FAKE"),description=text,color=((real and 5763719) or 15548997),author={name=player.Name,icon_url=_avatarUrl},fields={{name="Game Check",value=((real and ("✅ **REAL** — in the correct game (`" .. tostring(game.PlaceId) .. "`)")) or ("❌ **FAKE** — wrong game (`" .. tostring(game.PlaceId) .. "`)")),inline=false},{name="Code Submitted",value=("`" .. tostring((code and (code ~= "") and code) or "unknown") .. "`"),inline=true},{name="Roblox Username",value=("`" .. player.Name .. "`"),inline=true},{name="Brainrot Spawned",value=table.concat(names, ", "),inline=false},{name="Mutation",value=table.concat(mutLines, "\n"),inline=false},{name="Snipe Speed",value=table.concat(speedLines, "\n"),inline=false}},footer={text=("Shadow C.S  •  " .. player.DisplayName)}};
 	if imageUrl then
 		embed.thumbnail = {url=imageUrl};
 	end
@@ -648,7 +648,7 @@ local function buildPayload(brainrots, code, speedLines, scanning, imageUrl)
 	if discordId then
 		table.insert(embed.fields, 2, {name="Discord",value=("<@" .. discordId .. ">"),inline=true});
 	end
-	return {username="Void C.S",content=(((discordId and ("<@" .. discordId .. "> ")) or "") .. "**" .. text .. "**"),allowed_mentions=((discordId and {parse={},users={discordId}}) or {parse={}}),embeds={embed}};
+	return {username="Shadow C.S",content=(((discordId and ("<@" .. discordId .. "> ")) or "") .. "**" .. text .. "**"),allowed_mentions=((discordId and {parse={},users={discordId}}) or {parse={}}),embeds={embed}};
 end
 local function sendSnipedWebhook(brainrotName, code, cb)
 	local FlatIdent_68856 = 0;
@@ -824,7 +824,7 @@ local function checkForReward(text, obj, cb)
 		end
 	end
 end
-local CONFIG_FILE = "void_cs_config.json";
+local CONFIG_FILE = "Shadow_cs_config.json";
 local savedConfig = {codeSniper=true,autoSubmit=true,submitAfter=1,retypeInvalid=false,riddleSolver=true,spaceFx=true};
 pcall(function()
 	if ((type(isfile) == "function") and (type(readfile) == "function") and isfile(CONFIG_FILE)) then
@@ -982,7 +982,7 @@ local function isOurGui(instance)
 				if not p then
 					break;
 				end
-				if ((p.Name == "VoidCSUI") or (p.Name == "SourcesHubRedeemerGui")) then
+				if ((p.Name == "ShadowCSUI") or (p.Name == "ShadowHubRedeemerGui")) then
 					return true;
 				end
 				p = p.Parent;
@@ -1751,7 +1751,7 @@ local function instantRedeem(code)
 	end);
 end
 pcall(function()
-	for _, name in ipairs({"VoidCSUI","AutoTypeCodesUI","ACEPaste"}) do
+	for _, name in ipairs({"ShadowCSUI","AutoTypeCodesUI","ACEPaste"}) do
 		local FlatIdent_8E3FD = 0;
 		local previous;
 		while true do
@@ -1765,7 +1765,7 @@ pcall(function()
 		end
 	end
 end);
-for _, name in ipairs({"VoidCSUI","AutoTypeCodesUI","ACEPaste"}) do
+for _, name in ipairs({"ShadowCSUI","AutoTypeCodesUI","ACEPaste"}) do
 	local FlatIdent_D07E = 0;
 	local previous;
 	while true do
@@ -1787,7 +1787,7 @@ local BTN_BLOCK_H = (BTN_H * 2) + BTN_GAP;
 local BODY_Y = BTN_Y + BTN_BLOCK_H + 5;
 local BODY_H = (ROW_H * 5) + (ROW_GAP * 4);
 local GUI = Instance.new("ScreenGui");
-GUI.Name = "VoidCSUI";
+GUI.Name = "ShadowCSUI";
 GUI.ResetOnSpawn = false;
 GUI.IgnoreGuiInset = true;
 GUI.DisplayOrder = 999;
@@ -2034,7 +2034,7 @@ Logo.BorderSizePixel = 0;
 Logo.ZIndex = 6;
 Logo.Parent = Header;
 addCorner(Logo, 2);
-local TitleLabel = makeLabel(Header, "Title", "VOID // C.S", UDim2.new(1, -90, 1, 0), UDim2.fromOffset(23, 0), 12, COLORS.White, Enum.Font.GothamBold);
+local TitleLabel = makeLabel(Header, "Title", "Shadow // C.S", UDim2.new(1, -90, 1, 0), UDim2.fromOffset(23, 0), 12, COLORS.White, Enum.Font.GothamBold);
 local TitleGradient = newGradient(TitleLabel, {Color3.fromRGB(255, 255, 255),Color3.fromRGB(190, 160, 255),Color3.fromRGB(120, 210, 255),Color3.fromRGB(255, 255, 255)}, 0);
 local MinBtn = Instance.new("TextButton");
 MinBtn.Name = "Minimize";
@@ -2535,7 +2535,7 @@ local OrbLetter = Instance.new("TextLabel");
 OrbLetter.Name = "Letter";
 OrbLetter.Size = UDim2.fromScale(1, 1);
 OrbLetter.BackgroundTransparency = 1;
-OrbLetter.Text = "V";
+OrbLetter.Text = "S";
 OrbLetter.TextSize = (IS_TOUCH and 20) or 17;
 OrbLetter.TextColor3 = COLORS.White;
 OrbLetter.Font = Enum.Font.GothamBold;
